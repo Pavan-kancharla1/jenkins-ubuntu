@@ -16,6 +16,19 @@ pipeline {
 				sh 'ps -ef| grep amazon'
 			}
 		}
+		stage('Install python') {
+			steps {
+			sh '''
+				apt-get update
+				apt-get install -y python3
+			'''
+				}
+		}
+		stage('Run Python Script') {
+			steps {
+				sh 'python3 src/hello.py'
+			}
+		}
 	}
 }
 
