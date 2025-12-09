@@ -1,6 +1,9 @@
 pipeline {
 	agent {
-		docker {image 'ubuntu:26.04'}
+		docker {
+			image 'ubuntu:26.04'
+			args '-u 0:0'   // run container as root
+			}
 	}
 	stages {
 		stage('checkout') {
